@@ -14,7 +14,7 @@ from src.logger import logging
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifact','preprocessor.pkl')
+    preprocessor_obj_file_path=os.path.join('artifacts','preprocessor.pkl')
 
 class DataTransformation:
     def __init__(self):
@@ -39,7 +39,7 @@ class DataTransformation:
                 steps=[
                     ('imputer',SimpleImputer(strategy='most_frequent')),
                     ('encoding',OneHotEncoder()),
-                    ('scalar',StandardScaler())
+                    ('scalar',StandardScaler(with_mean=False))
                 ]
             )
 
